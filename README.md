@@ -3,6 +3,7 @@
 ![dlib-raspberrypi](https://i.ibb.co/JCYH1V5/dlib-raspberrypi.png)
 
 Precompiled **Dlib 19.22** binaries for **Raspberry Pi 3 & 4**.
+Read the following [blog post](https://lindevs.com/install-precompiled-dlib-on-raspberry-pi) for additional information.
 
 ## Supported features
 
