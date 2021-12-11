@@ -9,7 +9,7 @@ Read the following [blog post](https://lindevs.com/install-precompiled-dlib-on-r
 
 * NEON optimization
 * Linked with OpenBLAS library
-* Python 2 and Python 3 bindings
+* Python 3 bindings
 
 ## Prerequisites
 
@@ -23,23 +23,30 @@ Tested on Raspberry Pi 4 Model B (8 GB).
 
 ### Supported OS
 
-* Raspberry Pi OS Buster (32-bit)
+* Raspberry Pi OS Bullseye (32-bit)
 
 ## Install
 
-* `wget https://github.com/prepkg/dlib-raspberrypi/releases/latest/download/dlib.deb`
-* `sudo apt install -y ./dlib.deb`
+```shell
+wget https://github.com/prepkg/dlib-raspberrypi/releases/latest/download/dlib.deb
+```
+
+```shell
+sudo apt install -y ./dlib.deb
+```
 
 ## Uninstall
 
-* `sudo apt purge --autoremove -y dlib`
+```shell
+sudo apt purge --autoremove -y dlib
+```
 
 ## Debian Package
 
 Debian package contains the following shared libraries:
 
 | Library                     | Description                                                            |
-| :-------------------------  | :--------------------------------------------------------------------- |
+|:----------------------------|:-----------------------------------------------------------------------|
 | libdlib.so                  | Modern C++ toolkit containing machine learning algorithms and tools    |
 
 ## Reference
