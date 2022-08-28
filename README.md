@@ -23,9 +23,11 @@ Tested on Raspberry Pi 4 Model B (8 GB).
 
 ### Supported OS
 
-* Raspberry Pi OS Bullseye (32-bit)
+* Raspberry Pi OS Bullseye (32-bit and 64-bit)
 
 ## Install
+
+* 32-bit:
 
 ```shell
 wget https://github.com/prepkg/dlib-raspberrypi/releases/latest/download/dlib.deb
@@ -33,6 +35,16 @@ wget https://github.com/prepkg/dlib-raspberrypi/releases/latest/download/dlib.de
 
 ```shell
 sudo apt install -y ./dlib.deb
+```
+
+* 64-bit:
+
+```shell
+wget https://github.com/prepkg/dlib-raspberrypi/releases/latest/download/dlib_64.deb
+```
+
+```shell
+sudo apt install -y ./dlib_64.deb
 ```
 
 ## Uninstall
