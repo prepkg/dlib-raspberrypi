@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/github/downloads/prepkg/dlib-raspberrypi/total)](https://github.com/prepkg/dlib-raspberrypi/releases)
 [![Linux](https://github.com/prepkg/dlib-raspberrypi/actions/workflows/linux.yaml/badge.svg)](https://github.com/prepkg/dlib-raspberrypi/actions/workflows/linux.yaml)
 
-> 🚀️ Always up-to-date [dlib](https://github.com/davisking/dlib) binaries for Raspberry Pi - just download and use it.
+> 🚀️ Always up-to-date [Dlib](https://github.com/davisking/dlib) binaries for Raspberry Pi - just download and use it.
 
 > ⭐ If you find this repository useful, please consider giving it a star.
 
