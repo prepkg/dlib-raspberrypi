@@ -1,54 +1,78 @@
 # dlib-raspberrypi
 
-![dlib-raspberrypi](https://i.ibb.co/9vNbKS6/dlib-raspberrypi.png)
+[![GitHub Release](https://img.shields.io/github/v/release/prepkg/dlib-raspberrypi)](https://github.com/prepkg/dlib-raspberrypi/releases/latest)
+[![License](https://img.shields.io/github/license/prepkg/dlib-raspberrypi)](https://github.com/prepkg/dlib-raspberrypi/blob/master/LICENSE)
+[![Downloads](https://img.shields.io/github/downloads/prepkg/dlib-raspberrypi/total)](https://github.com/prepkg/dlib-raspberrypi/releases)
+[![Linux](https://github.com/prepkg/dlib-raspberrypi/actions/workflows/linux.yaml/badge.svg)](https://github.com/prepkg/dlib-raspberrypi/actions/workflows/linux.yaml)
 
-Precompiled **Dlib 20.0** binaries for **Raspberry Pi 3 & 4**.
-Read the following [blog post](https://lindevs.com/install-precompiled-dlib-on-raspberry-pi) for additional information.
+> 🚀️ Always up-to-date [dlib](https://github.com/davisking/dlib) binaries for Raspberry Pi - just download and use it.
 
-## Supported features
+> ⭐ If you find this repository useful, please consider giving it a star.
 
-* NEON optimization
-* Statically linked with OpenBLAS library
-* Python 3 bindings
+Dlib binaries are compiled with the [GCC Toolchain](https://github.com/prepkg/gcc-toolchain) targeting older glibc
+versions, ensuring compatibility across a wide range of Raspberry Pi boards running Raspberry Pi OS 64-bit. GitHub CI
+workflows are used to automate the build process: pipelines run daily, but new builds are triggered only when a new
+Dlib release is available. Read the following [blog post](https://lindevs.com/install-precompiled-dlib-on-raspberry-pi)
+for additional information.
 
-## Prerequisites
+## Why?
 
-### Supported Boards
+* **No official Dlib packages.** There are no prebuilt official Dlib packages for Raspberry Pi OS, forcing users
+  to compile it from source themselves.
+* **Slow compilation on Raspberry Pi.** Building Dlib directly on a Raspberry Pi can take hours and often runs into the
+  limited RAM available on the device.
+* **Always up to date.** GitHub CI workflows rebuild and publish Dlib automatically whenever a new version is released
+  upstream.
+* **No extra dependencies.** The required libraries are statically linked, so the Dlib binaries only depend on the base
+  system libraries already present on Raspberry Pi OS.
 
-* Raspberry Pi 3 Model A+
-* Raspberry Pi 3 Model B+
-* Raspberry Pi 4 Model B
+## Build Information
 
-Tested on Raspberry Pi 4 Model B (8 GB).
+* Dynamically linked with an older glibc version. For details, see the [GCC Toolchain](https://github.com/prepkg/gcc-toolchain).
+* Statically linked with libstdc++ and libgcc.
+* Statically linked with OpenBLAS library.
 
-### Supported OS
+## Precompiled Binaries
 
-* Raspberry Pi OS Bookworm 64-bit
-
-## Install
+If you prefer not to build the Dlib yourself, a precompiled Dlib can be downloaded from the [releases page](https://github.com/prepkg/dlib-raspberrypi/releases).
 
 ```shell
-wget https://github.com/prepkg/dlib-raspberrypi/releases/latest/download/dlib_64.deb
+curl -sSLo dlib.deb https://github.com/prepkg/dlib-raspberrypi/releases/latest/download/dlib-aarch64-linux-gnu.deb \
+  && sudo apt install -y ./dlib.deb \
+  && rm -rf dlib.deb
 ```
+
+## Compilation
+
+### Requirements
+
+* Git
+* Docker
+
+### Instructions
+
+* Clone the repository:
 
 ```shell
-sudo apt install -y ./dlib_64.deb
+git clone https://github.com/prepkg/dlib-raspberrypi.git && cd dlib-raspberrypi
 ```
 
-## Uninstall
+* Build the Docker image:
 
 ```shell
-sudo apt purge --autoremove -y dlib
+./setup.sh build-image
 ```
 
-## Debian Package
+* Build the library:
 
-Debian package contains the following shared libraries:
+```shell
+./setup.sh build-lib
+```
 
-| Library                     | Description                                                            |
-|:----------------------------|:-----------------------------------------------------------------------|
-| libdlib.so                  | Modern C++ toolkit containing machine learning algorithms and tools    |
+After compilation, the `deb` package will be available in the `build` directory.
 
-## Reference
+* (Optional) Run the test to verify that the library links correctly and the resulting binary runs under QEMU:
 
-1. [Dlib repository](https://github.com/davisking/dlib)
+```shell
+./setup.sh test-lib
+```
