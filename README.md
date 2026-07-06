@@ -29,8 +29,7 @@ for additional information.
 ## Build Information
 
 * Dynamically linked with an older glibc version. For details, see the [GCC Toolchain](https://github.com/prepkg/gcc-toolchain).
-* Statically linked with libstdc++ and libgcc.
-* Statically linked with OpenBLAS library.
+* Statically linked with libstdc++, libgcc, and OpenBLAS.
 
 ## Precompiled Binaries
 
