@@ -12,8 +12,7 @@
 Dlib binaries are compiled with the [GCC Toolchain](https://github.com/prepkg/gcc-toolchain) targeting older glibc
 versions, ensuring compatibility across a wide range of Raspberry Pi boards running Raspberry Pi OS 64-bit. GitHub CI
 workflows are used to automate the build process: pipelines run daily, but new builds are triggered only when a new
-Dlib release is available. Read the following [blog post](https://lindevs.com/install-precompiled-dlib-on-raspberry-pi)
-for additional information.
+Dlib release is available.
 
 ## Why?
 
